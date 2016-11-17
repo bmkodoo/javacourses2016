@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.nio.file.Files;
@@ -37,8 +36,8 @@ public class SolverTask1 {
         try {
             fr = new FileWriter(output);
             for (int i = listfromfile.size() - 1; i >= 0; i--) {
-                fr.write(listfromfile.get(i));
-                fr.write("\r\n");
+                fr.write(listfromfile.get(i)+'\n');
+
             }
         } catch (IOException e) {
             e.printStackTrace();
