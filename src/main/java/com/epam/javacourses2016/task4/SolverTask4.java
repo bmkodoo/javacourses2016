@@ -22,7 +22,7 @@ public class SolverTask4 {
      */
     public Set<Integer> intersection(Set<Integer> first, Set<Integer> second) {
         Set<Integer> result = new HashSet<>();
-       for (Integer elementoffirst  : first) {
+       for (Integer elementoffirst : first) {
             for (Integer elementofsecond : second) {
                 if (elementoffirst.equals(elementofsecond)) {
                     result.add(elementoffirst);
