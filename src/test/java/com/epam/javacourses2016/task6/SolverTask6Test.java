@@ -8,14 +8,13 @@ import java.util.HashMap;
 
 public class SolverTask6Test {
 
-    @Test(enabled = false, dataProvider = "polynomials")
+    @Test(enabled = true, dataProvider = "polynomials")
     public void testAddPolynomials(Integer[][] first, Integer[][] second, Integer[][] result) throws Exception {
 
         SolverTask6 solver = new SolverTask6();
         HashMap<Integer, Integer> firstMap = convertToMap(first);
         HashMap<Integer, Integer> secondMap = convertToMap(second);
         HashMap<Integer, Integer> resultMap = convertToMap(result);
-
         Assert.assertEquals(solver.addPolynomials(firstMap, secondMap), resultMap);
     }
 
