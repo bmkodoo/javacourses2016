@@ -20,6 +20,7 @@ public class SolverTask2 {
         Set<File> fileset = new HashSet<>();
         File[] folderfiles = directory.listFiles();
         for (File file : folderfiles) {
+
             fileset.add(file);
             if (file.isDirectory()) {
                 fileset.addAll(getFiles(file));
