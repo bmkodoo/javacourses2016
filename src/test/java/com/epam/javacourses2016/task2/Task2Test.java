@@ -1,16 +1,16 @@
 package com.epam.javacourses2016.task2;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.File;
+import java.io.IOException;
+import org.testng.annotations.DataProvider;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Task2Test {
-
-    @Test(enabled = false, dataProvider = "directory")
+    @Test(enabled = true, dataProvider = "directory")
     public void testTask2(String directory) {
         SolverTask2 solver = new SolverTask2();
         File file = new File(directory);
