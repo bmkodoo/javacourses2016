@@ -19,4 +19,5 @@ public class SolverTask10 {
     public HashMap<String, Integer> countNumberWords(File input) {
         return null;
     }
+
 }
