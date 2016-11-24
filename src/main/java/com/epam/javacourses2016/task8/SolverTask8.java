@@ -17,5 +17,6 @@ public class SolverTask8 {
      */
     public boolean isNormalBrackets(String string) {
         return false;
+
     }
 }
