@@ -28,4 +28,5 @@ public class SolverTask11 {
     public String emulate(LinkedList<String> peoples) {
         return null;
     }
+
 }
