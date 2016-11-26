@@ -20,7 +20,7 @@ public class FileWithLines implements SolverTask15.IFileWithLines {
      */
     @Override
     public File getFile() {
-        return null;
+        return file;
     }
 
     public FileWithLines(File file) {
@@ -41,7 +41,7 @@ public class FileWithLines implements SolverTask15.IFileWithLines {
             while (s != null) {
                 lines.add(new Line(new Point2D(new Double(s), new Double(bf.readLine())),
                         new Point2D(new Double(bf.readLine()), new Double(bf.readLine()))));
-                s = bf.readLine();
+                s =Integer.toString(bf.read());
             }
             return lines;
         } catch (IOException e) {

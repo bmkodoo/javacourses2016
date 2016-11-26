@@ -58,7 +58,7 @@ public class Line implements SolverTask15.ILine {
      * @return возвращает длину отрезка
      */
     private double length(Point2D first, Point2D second) {
-        return Math.sqrt(Math.scalb(second.getY() - first.getY(), 2) + Math.scalb(second.getX() - first.getX(), 2));
+        return Math.sqrt(Math.pow(second.getY() - first.getY(), 2) + Math.pow(second.getX() - first.getX(), 2));
     }
 
     /**
@@ -70,7 +70,7 @@ public class Line implements SolverTask15.ILine {
 
     private void setBorderPoints(Point2D point) {
         if (length(this.start, point) > length(this.start, this.end)) {
-            if (length(this.end, point) > length(this.start, this.end)) {
+            if (length(this.end, point) > length(this.start, point)) {
                 this.start = point;
             } else {
                 this.end = point;
@@ -82,8 +82,15 @@ public class Line implements SolverTask15.ILine {
         }
     }
 
+    public boolean unique(Point2D point) {
+        for (Point2D p : points) {
+            if (p.getX() == point.getX() && p.getY() == point.getY()) return false;
+        }
+        return true;
+    }
+
     public void add(Point2D point) {
-        if (this.belongToLine(point)) {
+        if (this.belongToLine(point) && this.unique(point)) {
             points.add(point);
             setBorderPoints(point);
         }
@@ -96,6 +103,32 @@ public class Line implements SolverTask15.ILine {
     @Override
     public Set<Point2D> getPoints() {
         return points;
+    }
+
+
+
+
+    @Override
+    public int hashCode() {
+        int result = 31*new Double(start.getX()+start.getY()).hashCode()+31*new Double(end.getX()+end.getY()).hashCode();
+        System.out.println(start.getX()+" "+start.getY()+" "+end.getX()+" "+end.getY()+" "+result);
+        return result;
+    }
+@Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Line other = (Line) obj;
+        return  ((this.end.getX()==other.getEnd().getX()&&this.end.getY()==other.getEnd().getY()&&
+                this.start.getX()==other.getStart().getX()&&this.start.getY()==other.getStart().getY()) ||
+                (this.end.getX()==other.getStart().getX()&&this.end.getY()==other.getStart().getY()&&
+                        this.start.getX()==other.getEnd().getX()&&this.start.getY()==other.getEnd().getY()));
+
+
     }
 
 }

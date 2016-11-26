@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,27 +24,33 @@ public class SolverTask15 {
     IFileWithLines analyze(Set<Point2D> points, File output) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(output));
+            Set<Line> lines = new HashSet<>();
             for (Point2D first : points) {
                 for (Point2D second : points) {
                     if (!((first.getY() == second.getY()) && (first.getX() == second.getX()))) {
                         Line line = new Line(first, second);
                         for (Point2D point : points) {
-                            if (!((first.getY() == second.getY()) && (first.getX() == second.getX())))
+                            if (((first.getY() != point.getY()) || (first.getX() != point.getX())) &&
+                                    ((second.getY() != point.getY()) || (second.getX() != point.getX())))
                                 line.add(point);
 
                         }
                         if (line.size() > 2) {
-                            bw.write(Double.toString(line.getStart().getX()));
-                            bw.write(System.lineSeparator());
-                            bw.write(Double.toString(line.getStart().getY()));
-                            bw.write(System.lineSeparator());
-                            bw.write(Double.toString(line.getEnd().getX()));
-                            bw.write(System.lineSeparator());
-                            bw.write(Double.toString(line.getEnd().getY()));
-                            bw.write(System.lineSeparator());
+                            lines.add(line);
                         }
                     }
                 }
+            }
+            for (Line line : lines
+                    ) {
+                bw.write(Double.toString(line.getStart().getX()));
+                bw.write(" ");
+                bw.write(Double.toString(line.getStart().getY()));
+                bw.write(" ");
+                bw.write(Double.toString(line.getEnd().getX()));
+                bw.write(" ");
+                bw.write(Double.toString(line.getEnd().getY()));
+                bw.write(System.lineSeparator());
             }
             bw.close();
             IFileWithLines filewithline = new FileWithLines(output);
