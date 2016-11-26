@@ -2,7 +2,10 @@ package com.epam.javacourses2016.task15;
 
 import com.epam.javacourses2016.Point2D;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -12,12 +15,42 @@ import java.util.Set;
 public class SolverTask15 {
     /**
      * Осуществляет анализ переданных точек, вычисляя линии, которые проходят более чем через 2 точки.
+     *
      * @param points Множество точек на плоскости.
      * @param output Файл для вывода результатов.
      * @return Файл с результатами анализа.
      */
     IFileWithLines analyze(Set<Point2D> points, File output) {
-        //TODO
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(output));
+            for (Point2D first : points) {
+                for (Point2D second : points) {
+                    if (!((first.getY() == second.getY()) && (first.getX() == second.getX()))) {
+                        Line line = new Line(first, second);
+                        for (Point2D point : points) {
+                            if (!((first.getY() == second.getY()) && (first.getX() == second.getX())))
+                                line.add(point);
+
+                        }
+                        if (line.size() > 2) {
+                            bw.write(Double.toString(line.getStart().getX()));
+                            bw.write(System.lineSeparator());
+                            bw.write(Double.toString(line.getStart().getY()));
+                            bw.write(System.lineSeparator());
+                            bw.write(Double.toString(line.getEnd().getX()));
+                            bw.write(System.lineSeparator());
+                            bw.write(Double.toString(line.getEnd().getY()));
+                            bw.write(System.lineSeparator());
+                        }
+                    }
+                }
+            }
+            bw.close();
+            IFileWithLines filewithline = new FileWithLines(output);
+            return filewithline;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -33,6 +66,7 @@ public class SolverTask15 {
 
         /**
          * Извлекает из файла информацию о хранящихся в нем линиях.
+         *
          * @return Множество линий, найденных в результате анализа.
          */
         Set<ILine> getLines();
@@ -43,7 +77,9 @@ public class SolverTask15 {
      */
     interface ILine {
 
-        /** @return Точки, через которые проходит прямая */
+        /**
+         * @return Точки, через которые проходит прямая
+         */
         Set<Point2D> getPoints();
     }
 }
