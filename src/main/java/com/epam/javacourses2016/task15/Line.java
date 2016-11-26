@@ -111,7 +111,6 @@ public class Line implements SolverTask15.ILine {
     @Override
     public int hashCode() {
         int result = 31*new Double(start.getX()+start.getY()).hashCode()+31*new Double(end.getX()+end.getY()).hashCode();
-        System.out.println(start.getX()+" "+start.getY()+" "+end.getX()+" "+end.getY()+" "+result);
         return result;
     }
 @Override
