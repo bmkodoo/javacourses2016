@@ -12,6 +12,7 @@ import java.util.SortedMap;
  * Использовать класс SortedMap.
  */
 public class SolverTask16 {
+    private static final double CELL_SIZE=0.5;
     /**
      * Осуществляет анализ точек, находя среди них попавших внутрь круга.
      *
@@ -24,9 +25,25 @@ public class SolverTask16 {
 
 
         //TODO
-
+        //не забыть составить компаратор по дабл
         return null;
     }
+/**
+ * Возвращает клетки из пересечения окружности и квадрата
+ *
+ * @param center    Точка, в которой расположен центр круга.
+ * @param radius    Радиус круга.
+ * @param side Сторона квадрата.
+ * @return Множество пар: точка + расстояние до центра.
+ */
+
+SortedMap<Point2D, Double> intersectionWithSquare(Point2D center, int radius, double side){
+    //первая клетка - это левый верхний угол - centerX-side/2 centerY+side/2
+    //и идем по часовой стрелке, один раз меняя направление
+    //не забыть составить компаратор по дабл
+    //сразу по два значения проверять сверху и снизу, затем слева и справа
+for(double x=)
+}
 
     /**
      * Проверяет, входит ли точка в круг
@@ -38,7 +55,7 @@ public class SolverTask16 {
      */
     private boolean within(Point2D center, int radius, Point2D candidate) {
         if (length(center, candidate) >= radius) return false;
-        Cell cell = new Cell(candidate);
+        Cell cell = new Cell(candidate, CELL_SIZE);
         return length(cell.getLowerLeftCorner(), center) < radius &&
                 length(cell.getLowerRightCorner(), center) < radius &&
                 length(cell.getUpperLeftCorner(), center) < radius &&
