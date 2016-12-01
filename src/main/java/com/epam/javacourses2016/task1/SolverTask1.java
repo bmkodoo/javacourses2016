@@ -23,8 +23,8 @@ public class SolverTask1 {
      * @return Список строк, прочитанных из входного файла в прямом порядке.
      */
     public List<String> reverseFile(File input, File output) {
+        List<String>listfromfile = null;
 
-        List<String> listfromfile = null;
         try {
             listfromfile = Files.readAllLines(Paths.get(input.getPath()), StandardCharsets.UTF_8);
 
@@ -32,22 +32,23 @@ public class SolverTask1 {
             e.printStackTrace();
         }
 
-        FileWriter fr = null;
+        FileWriter fw = null;
+
         try {
-            fr = new FileWriter(output);
+            fw = new FileWriter(output);
             for (int i = listfromfile.size() - 1; i >= 0; i--) {
-                fr.write(listfromfile.get(i)+'\n');
+                fw.write(listfromfile.get(i) + '\n');
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try {
-                fr.close();
+                    try {
+                fw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+                }
         return listfromfile;
     }
 }

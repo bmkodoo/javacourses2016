@@ -24,7 +24,6 @@ public class SolverTask2 {
             fileset.add(file);
             if (file.isDirectory()) {
                 fileset.addAll(getFiles(file));
-                continue;
             }
         }
         return fileset;

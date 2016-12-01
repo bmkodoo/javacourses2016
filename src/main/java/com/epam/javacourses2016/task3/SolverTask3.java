@@ -12,15 +12,15 @@ public class SolverTask3 {
 
     /**
      * Формирует упорядоченный список строк из стихотворений указанного автора.
-     * @param poems Анализируемое множество стихотворений.
+     *
+     * @param poems  Анализируемое множество стихотворений.
      * @param author Автор, стихотворения которого необходимо выбрать.
      * @return Список, упорядоченных по длине строк, составляющих стихотворения автора.
      */
     public List<String> sortPoems(Set<Poem> poems, String author) {
-        List<String> sortedpoems=new ArrayList<>();
-        for (Poem poem: poems
-             ) {
-            if(author.equals(poem.getAuthor())){
+        List<String> sortedpoems = new ArrayList<>();
+        for (Poem poem : poems) {
+            if (author.equals(poem.getAuthor())) {
                 sortedpoems.addAll(poem.getLines());
             }
         }

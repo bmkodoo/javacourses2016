@@ -28,6 +28,7 @@ public class Task2Test {
         Assert.assertEquals(solverSet, testSet);
     }
 
+
     @DataProvider(name = "directory")
     public Object[][] directory() {
         return new Object[][]{
