@@ -29,6 +29,7 @@ public class SolverTask5 {
             numerator=numerator.add(BigDecimal.valueOf(measure.getVoltage()*measure.getCurrent()));
             denominator=denominator.add(BigDecimal.valueOf(measure.getCurrent()*measure.getCurrent()));
         }
+
         return numerator.divide(denominator,3, RoundingMode.HALF_UP).doubleValue();
 
     }
