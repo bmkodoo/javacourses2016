@@ -19,6 +19,7 @@ public class SolverTask3 {
      */
     public List<String> sortPoems(Set<Poem> poems, String author) {
         List<String> sortedpoems = new ArrayList<>();
+
         for (Poem poem : poems) {
             if (author.equals(poem.getAuthor())) {
                 sortedpoems.addAll(poem.getLines());

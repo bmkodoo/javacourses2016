@@ -38,6 +38,7 @@ public class Task3Test {
         List<String> sortedPoem = new ArrayList<>();
         String path = this.getClass().getResource(poemOut).getPath();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(path)))) {
+
             String line;
             while ((line = reader.readLine()) != null) {
                 sortedPoem.add(line);

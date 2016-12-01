@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Task2Test {
+
     @Test(enabled = true, dataProvider = "directory")
     public void testTask2(String directory) {
         SolverTask2 solver = new SolverTask2();

@@ -44,6 +44,7 @@ public class SolverTask1 {
             e.printStackTrace();
         } finally {
                     try {
+
                 fw.close();
             } catch (IOException e) {
                 e.printStackTrace();

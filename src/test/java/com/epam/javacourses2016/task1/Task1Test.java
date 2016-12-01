@@ -24,6 +24,7 @@ public class Task1Test {
                 write.write(line + '\n');
             }
         }
+
         File out = Files.createTempFile("task1", "out").toFile();
 
         Assert.assertEquals(solver.reverseFile(in, out), lines);
