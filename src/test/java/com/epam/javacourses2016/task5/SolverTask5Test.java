@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SolverTask5Test {
 
-    @Test(enabled = false, dataProvider = "measurements")
+    @Test(enabled = true, dataProvider = "measurements")
     public void testCalcResistance(double[][] measurements, double result) throws Exception {
         SolverTask5 solver = new SolverTask5();
         List<Measurement> listMeasures = getMeasurements(measurements);
@@ -32,4 +32,5 @@ public class SolverTask5Test {
                 {new double[][]{{1, 5}, {2, 10}, {3, 15}, {4, 20}}, 5}
         };
     }
+
 }

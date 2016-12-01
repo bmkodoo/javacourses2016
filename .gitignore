@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+/.idea/
+/build/
+/.gradle/
+=======
+.idea/
+build/
+gradle/
+>>>>>>> Task_2

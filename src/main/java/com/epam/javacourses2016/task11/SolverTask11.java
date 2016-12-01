@@ -13,19 +13,47 @@ public class SolverTask11 {
 
     /**
      * Выполняет эмуляцию поставленной задачи.
+     *
      * @param peoples Список с именами участников.
      * @return Имя последнего оставшегося.
      */
     public String emulate(ArrayList<String> peoples) {
-        return null;
+        int i = 0;
+        while (peoples.size() > 1) {
+            peoples.remove(i);
+            i++;
+
+            if (i == peoples.size()) {
+                i = 0;
+            }
+            if (i > peoples.size()) {
+                i = 1;
+            }
+        }
+        return peoples.get(0);
+
     }
 
     /**
      * Выполняет эмуляцию поставленной задачи.
+     *
      * @param peoples Список с именами участников.
      * @return Имя последнего оставшегося.
      */
     public String emulate(LinkedList<String> peoples) {
-        return null;
+
+        int i = 0;
+        while (peoples.size() > 1) {
+            peoples.remove(i);
+            i++;
+
+            if (i == peoples.size()) {
+                i = 0;
+            }
+            if (i > peoples.size()) {
+                i = 1;
+            }
+        }
+        return peoples.get(0);
     }
 }
