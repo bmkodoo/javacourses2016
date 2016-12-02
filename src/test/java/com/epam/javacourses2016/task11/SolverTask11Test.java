@@ -13,13 +13,13 @@ import static org.testng.Assert.*;
 
 public class SolverTask11Test {
 
-    @Test(enabled = true, dataProvider = "listofpeople")
+    @Test(enabled = false, dataProvider = "listofpeople")
     public void testEmulate(String[] members, String winner) throws Exception {
         SolverTask11 solver=new SolverTask11();
         Assert.assertEquals(solver.emulate(new ArrayList<String>(Arrays.asList(members))),winner);
     }
 
-    @Test(enabled = true, dataProvider = "listofpeople")
+    @Test(enabled = false, dataProvider = "listofpeople")
     public void testEmulate1(String[] members, String winner) throws Exception {
         SolverTask11 solver=new SolverTask11();
         Assert.assertEquals(solver.emulate(new LinkedList<String>(Arrays.asList(members))),winner);
