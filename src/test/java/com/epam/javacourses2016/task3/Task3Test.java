@@ -24,7 +24,8 @@ public class Task3Test {
         };
     }
 
-    @Test(enabled = false, dataProvider = "poems")
+
+    @Test(enabled = true, dataProvider = "poems")
     public void testTask3(String poemOut, String author, String[] poems) throws IOException {
         SolverTask3 solver = new SolverTask3();
 
