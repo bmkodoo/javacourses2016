@@ -5,9 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import java.util.HashMap;
-
-import static org.testng.Assert.*;
 
 public class SolverTask6Test {
 
