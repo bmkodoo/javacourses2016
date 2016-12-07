@@ -21,15 +21,13 @@ public class SolverTask4 {
      * @return Результат пересечения множеств.
      */
     public Set<Integer> intersection(Set<Integer> first, Set<Integer> second) {
+        Set<Integer> temp1 = new HashSet<>();
+        temp1.addAll(first);
+        temp1.retainAll(second);
         Set<Integer> result = new HashSet<>();
-       for (Integer elementoffirst : first) {
-            for (Integer elementofsecond : second) {
-                if (elementoffirst.equals(elementofsecond)) {
-                    result.add(elementoffirst);
-                    break;
-                   }
-            }
-        }
+        result.addAll(second);
+        result.retainAll(first);
+        result.addAll(temp1);
 
         return result;
     }
@@ -42,7 +40,7 @@ public class SolverTask4 {
      * @return Результат объединения множеств.
      */
     public Set<Integer> union(Set<Integer> first, Set<Integer> second) {
-        Set<Integer> result=new HashSet<>(first.size()+second.size());
+        Set<Integer> result = new HashSet<>(first.size() + second.size());
         result.addAll(first);
         result.addAll(second);
         return result;

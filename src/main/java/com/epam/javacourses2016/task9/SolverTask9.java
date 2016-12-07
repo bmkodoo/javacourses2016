@@ -27,9 +27,8 @@ public class SolverTask9 {
                 while (scanner.hasNext()) {
                     String tmp = scanner.next();
                     tmp = tmp.toLowerCase();
-                    if (!result.contains(tmp)) {
-                        result.add(tmp);
-                    }
+                    result.add(tmp);
+
                 }
             }
         } catch (FileNotFoundException e) {

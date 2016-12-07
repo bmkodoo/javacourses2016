@@ -29,10 +29,12 @@ public class SolverTask8 {
                     stack.push(OPENING[j]);
                 } else {
                     if (string.charAt(i) == CLOSING[j]) {
-                        if (stack.search(OPENING[j]) != -1) {
+                        if (!stack.empty() && stack.peek() != OPENING[j]) {
                             if (!stack.pop().equals(OPENING[j])) {
                                 return false;
                             }
+                        } else {
+                            if (!stack.empty()) stack.pop();
                         }
                     }
                 }
