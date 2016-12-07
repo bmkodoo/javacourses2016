@@ -21,14 +21,14 @@ public class Task11Test {
         }
         return list;
     }
-    @Test(enabled = true, dataProvider = "arraylists")
+    @Test(enabled = false, dataProvider = "arraylists")
     public void testEmulate(int listLength, int result) throws Exception {
         SolverTask11 solver = new SolverTask11();
         String name = solver.emulate(new ArrayList<String>(createList(listLength)));
         Assert.assertEquals(name, String.valueOf(result));
     }
 
-    @Test(enabled = true, dataProvider = "arraylists")
+    @Test(enabled = false, dataProvider = "arraylists")
     public void testBoth(int listLength, int result) {
         SolverTask11 solverTask11 = new SolverTask11();
         List<String> list = createList(listLength);
@@ -36,33 +36,39 @@ public class Task11Test {
         String second = solverTask11.emulate(new LinkedList<String>(list));
         Assert.assertEquals(first, second);
     }
+    @Test(enabled = false, dataProvider = "arraylists")
+    public void testEmulate1(int listLength, int result) throws Exception {
+       SolverTask11 solver = new SolverTask11();
+       String name = solver.emulate(new LinkedList<String>(createList(listLength)));
+        Assert.assertEquals(name, String.valueOf(result));
+    }
 
     @DataProvider(name = "arraylists")
     public Object[][] arrayLists() {
         return new Object[][]{
                 {
-                        50, 36
+                    50, 36
                 },
                 {
-                        20, 8
+                    20, 8
                 },
                 {
-                        13,10
+                     13,10
                 },
                 {
-                        7, 6
+                    7, 6
                 },
                 {
-                        8, 8
+                     8, 8
                 },
                 {
-                        4,4
+                     4,4
                 },
                 {
-                        3,2
+                     3,2
                 },
                 {
-                        1,1
+                     1,1
                 },
 
         };
