@@ -1,5 +1,6 @@
 package com.epam.javacourses2016.task7;
 
+import org.omg.CORBA._IDLTypeStub;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -40,6 +41,11 @@ public class SolverTask7Test {
                         new int[]{2, 0, 0, 3},
                         new int[]{4, 0, 1},
                         new int[]{8, 0, 2, 12, 0, 3}
+                },
+                {
+                        new int[]{0,0,0},
+                        new int[]{0,0},
+                        new int[]{}
                 }
 
         };

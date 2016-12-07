@@ -29,7 +29,10 @@ public class SolverTask10Test {
                     put("One", 1);
                     put("problem", 1);
                     put("per", 1);
-                }}}
+                }}},
+                {"com/epam/javacourses2016/task9/text5.txt", new HashMap<String, Integer>()
+                },
+
         };
     }
 }
