@@ -16,6 +16,7 @@ public class SolverTask16Test {
     public void testAnalyze() throws Exception {
 
     }
+
     @Test(enabled = false, dataProvider = "points")
     public void testAnalyze_fromKA(Point2D center, int radius, File file, Double[][] doubles) throws Exception {
         SolverTask16 solverTask16 = new SolverTask16();
@@ -50,13 +51,25 @@ public class SolverTask16Test {
                         }
                     }
                 });
-
         sortedset.addAll(sortedMap.entrySet());
         return sortedset;
     }
 
     private SortedMap<Point2D, Double> convertToSortedMap(Double[][] doubles) {
-        SortedMap<Point2D, Double> sortedMap = new TreeMap<>();
+        SortedMap<Point2D, Double> sortedMap = new TreeMap<>(new Comparator<Point2D>() {
+            @Override
+            public int compare(Point2D o1, Point2D o2) {
+                if (o1.getX() < o2.getX())
+                    return -1;
+                if (o1.getX() > o2.getX())
+                    return 1;
+                if (o1.getY() < o2.getY())
+                    return -1;
+                if (o1.getY() > o2.getY())
+                    return 1;
+                return 0;
+            }
+        });
         for (Double[] aDouble : doubles) {
             sortedMap.put(new Point2D(aDouble[0], aDouble[1]), aDouble[2]);
         }
