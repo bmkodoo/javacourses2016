@@ -16,13 +16,17 @@ public class SolverTask16Test {
     public void testAnalyze() throws Exception {
 
     }
-
     @Test(enabled = false, dataProvider = "points")
     public void testAnalyze_fromKA(Point2D center, int radius, File file, Double[][] doubles) throws Exception {
         SolverTask16 solverTask16 = new SolverTask16();
         SortedMap<Point2D, Double> sortedMap = convertToSortedMap(doubles);
         SortedMap<Point2D, Double> sortedMap1 = solverTask16.analyze(center,radius,file).getPoints();
+        SortedSet<Map.Entry<Point2D, Double>> sortedSet = getSortedSet(sortedMap);
+        SortedSet<Map.Entry<Point2D, Double>> sortedSet1 = getSortedSet(sortedMap1);
+        Assert.assertEquals(sortedSet, sortedSet1);
+    }
 
+    private SortedSet<Map.Entry<Point2D, Double>> getSortedSet(SortedMap<Point2D,Double> sortedMap) {
         SortedSet<Map.Entry<Point2D, Double>> sortedset = new TreeSet<Map.Entry<Point2D, Double>>(
                 new Comparator<Map.Entry<Point2D, Double>>() {
                     @Override
@@ -48,8 +52,7 @@ public class SolverTask16Test {
                 });
 
         sortedset.addAll(sortedMap.entrySet());
-
-        Assert.assertEquals(sortedset, sortedMap1);
+        return sortedset;
     }
 
     private SortedMap<Point2D, Double> convertToSortedMap(Double[][] doubles) {
