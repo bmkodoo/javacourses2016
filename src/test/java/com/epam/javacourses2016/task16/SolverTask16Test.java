@@ -17,7 +17,7 @@ public class SolverTask16Test {
 
     }
 
-    @Test(enabled = true, dataProvider = "points")
+    @Test(enabled = false, dataProvider = "points")
     public void testAnalyze_fromKA(Point2D center, int radius, File file, Double[][] doubles) throws Exception {
         SolverTask16 solverTask16 = new SolverTask16();
         SortedMap<Point2D, Double> sortedMap = convertToSortedMap(doubles);
