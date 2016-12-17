@@ -37,8 +37,8 @@ public class SolverTask12Test {
     @DataProvider(name = "numbers")
     public Object[][] numbers() {
         return new Object[][]{
-             //   {new int[]{5, 4, 3, 2, 1}, 5},
-             //   {new int[]{1, 2, 3, 4, 5}, 5},
+                {new int[]{5, 4, 3, 2, 1}, 5},
+                {new int[]{1, 2, 3, 4, 5}, 5},
                 {new int[]{6, 4, 5, 8, 1}, 5},
                 {new int[]{5}, 5}
         };
