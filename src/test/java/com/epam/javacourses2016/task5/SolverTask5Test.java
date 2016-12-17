@@ -18,7 +18,7 @@ public class SolverTask5Test {
         Assert.assertEquals(solver.calcResistance(listMeasures), result);
     }
 
-    @Test(enabled = true, dataProvider = "numbers")
+    @Test(enabled = false, dataProvider = "numbers")
     public void testCalcResistance_fromKA(List<Measurement> list,double res) throws Exception {
         SolverTask5 solverTask5 = new SolverTask5();
         BigDecimal R = new BigDecimal(solverTask5.calcResistance(list));

@@ -11,7 +11,7 @@ import static org.testng.Assert.*;
  */
 public class NumberCollectionTest {
 
-    @Test(enabled = true, dataProvider = "numbers")
+    @Test(enabled = false, dataProvider = "numbers")
     public void testNearest(Number[] numbers, Number value, Number result) throws Exception {
         AbstractCollectionCreator.NumberCollection<Number> collection = AbstractCollectionCreator.createCollection(Number.class);
         for (Number n: numbers) collection.add(n);

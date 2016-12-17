@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class AbstractGraphCreatorTest {
-    @Test(enabled = true, dataProvider = "nodes")
+    @Test(enabled = false, dataProvider = "nodes")
     public void testCreateGraph(int numberNodesResult) throws Exception {
         AbstractGraphCreator.AbstractGraph graph = AbstractGraphCreator.createGraph(numberNodesResult);
         if(numberNodesResult<=0){
